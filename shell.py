@@ -1,7 +1,9 @@
 from commands.list import List
+from commands.add import Add
 
 commands = [
-    List()
+    List(),
+    Add()
 ]
 
 
