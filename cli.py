@@ -21,9 +21,9 @@ def retrieve_args():
     parser.add_argument("username")
     parser.add_argument("-l", "--list", help="list passwords",
                         action="store_true")
-    parser.add_argument("--shell", help="activate shell mode",
-                        action="store_true")
     parser.add_argument("-a", "--add", help="add a new password",
+                        action="store_true")
+    parser.add_argument("--shell", help="activate shell mode",
                         action="store_true")
     args = parser.parse_args()
     return args, parser
