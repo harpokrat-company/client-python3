@@ -1,9 +1,11 @@
 from commands.list import List
 from commands.add import Add
+from commands.delete import Delete
 
 commands = [
     List(),
-    Add()
+    Add(),
+    Delete()
 ]
 
 
