@@ -29,16 +29,13 @@ class Delete(Command):
                 continue
             choice.append(attributes.domain + separation + attributes.login)
             filtered_secret.append(s)
-            # print("===================================")
-            # print("Login: " + s.attributes.login)
-            # print("Password: " + s.attributes.password)
-            # print("Domain: " + s.attributes.domain)
         question['choices'] = choice
         answers = prompt([question])
         [domain, login] = answers.get('choice').split(separation)
-        print(domain)
-        print(login)
         for s in filtered_secret:
-            if s.attributes.
+            if s.attributes.login == login and s.attributes.domain == domain:
+                harpokrat_api.password_service.delete(s.id)
+                print("Mot de passe supprimé")
+                
 
 
