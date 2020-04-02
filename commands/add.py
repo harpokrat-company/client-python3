@@ -7,6 +7,11 @@ from HarpokratClientLibrary.models.domain.Password import Password
 questions = [
     {
         'type': 'input',
+        'name': 'name',
+        'message': 'Nom du password:'
+    },
+    {
+        'type': 'input',
         'name': 'username',
         'message': 'Identifiant associé:'
     },
@@ -47,7 +52,7 @@ class Add(Command):
             print("Mots de passe incorrectes");
             return
         print("Ajout effectué !");
-        new_pass = Password(answers.get('username'), answers.get('password'), answers.get('url'))
+        new_pass = Password(answers.get('name'), answers.get('username'), answers.get('password'), answers.get('url'))
         response4 = harpokrat_api.user_password_service.create(new_pass)
         print(response4)
 
