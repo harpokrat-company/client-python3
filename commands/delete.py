@@ -11,14 +11,13 @@ question = {
     'choices': []
 }
 
-choice = []
-
 
 class Delete(Command):
     def __init__(self):
         super().__init__('delete')
 
     def run(self, harpokrat_api, args):
+        choice = []
         secrets = harpokrat_api.user_password_service.read_all()
         me = harpokrat_api.me_service.me()
         filtered_secret = []
