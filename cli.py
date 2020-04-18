@@ -1,6 +1,8 @@
 #! /usr/bin/python3
 
 import argparse
+import sys
+
 import pyfiglet
 
 from HarpokratClientLibrary.HarpokratAPI import HarpokratAPI
@@ -38,13 +40,16 @@ def main():
         return shell_mode(harpokrat_api, args.username, password)
     elif args.list:
         connexion_result = harpokrat_api.token_service.login(args.username, password)
-        List().run(harpokrat_api, None);
+        List().run(harpokrat_api, None)
     elif args.add:
         connexion_result = harpokrat_api.token_service.login(args.username, password)
-        Add().run(harpokrat_api, None);
+        Add().run(harpokrat_api, None)
     else:
         parser.print_help()
 
 
 if __name__ == '__main__':
-    main()
+    try:
+        main()
+    except KeyboardInterrupt:
+        sys.exit(1)

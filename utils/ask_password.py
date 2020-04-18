@@ -1,5 +1,8 @@
 from PyInquirer import prompt, print_json
 
+from utils.exit_error import exit_error
+
+
 def ask_password():
     questions = [
         {
@@ -10,5 +13,5 @@ def ask_password():
     ]
     answers = prompt(questions)
     if not answers.get('password'):
-       exit_error(-1, "Password needed.")
+        exit_error(-1, "Password needed.")
     return answers.get('password')

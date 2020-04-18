@@ -1,7 +1,8 @@
-from PyInquirer import prompt, print_json
+from PyInquirer import prompt
 from commands.command import Command
 
 from HarpokratClientLibrary.models.domain.Password import Password
+
 # from HarpokratClientLibrary.models.domain.User import User
 
 questions = [
@@ -37,6 +38,7 @@ questions = [
     }
 ]
 
+
 # TODO faire les lambda validate pour les questions (éviter les inputs vides ou les mdp différents
 
 class Add(Command):
@@ -49,10 +51,8 @@ class Add(Command):
             print("Ajout annulé.")
             return
         if answers.get('password') != answers.get('conf_password'):
-            print("Mots de passe incorrectes");
+            print("Mots de passe incorrectes")
             return
-        print("Ajout effectué !");
         new_pass = Password(answers.get('name'), answers.get('username'), answers.get('password'), answers.get('url'))
         response4 = harpokrat_api.user_password_service.create(new_pass)
-        print(response4)
-
+        print("Ajout effectué !")

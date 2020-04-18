@@ -1,17 +1,18 @@
-from PyInquirer import prompt, print_json
+from PyInquirer import prompt
 from commands.command import Command
 
 # from HarpokratClientLibrary.models.domain.Password import Password
 # from HarpokratClientLibrary.models.domain.User import User
 
 question = {
-        'type': 'list',
-        'name': 'choice',
-        'message': 'Quel mot de passe souhaitez vous supprimer ?',
-        'choices': []
+    'type': 'list',
+    'name': 'choice',
+    'message': 'Quel mot de passe souhaitez vous supprimer ?',
+    'choices': []
 }
 
 choice = []
+
 
 class Delete(Command):
     def __init__(self):
@@ -21,7 +22,7 @@ class Delete(Command):
         secrets = harpokrat_api.user_password_service.read_all()
         me = harpokrat_api.me_service.me()
         filtered_secret = []
-        separation = ' - ' 
+        separation = ' - '
         for s in secrets.data:
             owner_id = s.relationships.get('owner').data.id
             attributes = s.attributes
@@ -36,6 +37,3 @@ class Delete(Command):
             if s.attributes.login == login and s.attributes.domain == domain:
                 harpokrat_api.password_service.delete(s.id)
                 print("Mot de passe supprimé")
-                
-
-

@@ -6,7 +6,7 @@ from HarpokratClientLibrary.models.domain.User import User
 
 harpokrat_api = HarpokratAPI('https://api.harpokrat.com/v1')
 
-test_user = User('test-eip@gmail.com', '123456789azerty', 'Test', 'EIP')
+test_user = User('test-eip@gmail.com', 'toto123', 'Test', 'EIP')
 
 response1 = harpokrat_api.user_service.create(test_user)
 print(response1)

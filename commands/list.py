@@ -1,5 +1,5 @@
-
 from commands.command import Command
+
 
 # from HarpokratClientLibrary.models.domain.Password import Password
 # from HarpokratClientLibrary.models.domain.User import User
@@ -7,7 +7,6 @@ from commands.command import Command
 class List(Command):
     def __init__(self):
         super().__init__('list')
-
 
     def run(self, harpokrat_api, args):
         secrets = harpokrat_api.user_password_service.read_all()
