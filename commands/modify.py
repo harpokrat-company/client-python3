@@ -50,17 +50,13 @@ class Modify(Command):
             if s.attributes.login == login and s.attributes.domain == domain:
                 new_pass = Password(s.attributes.name,  s.attributes.login, s.attributes.password, s.attributes.domain)
                 if field == 'Identifiant':
-                    print('dd')
                     new_pass = Password(value, s.attributes.login, s.attributes.password, s.attributes.domain)
                 if field == 'Login':
-                    print('cc')
                     new_pass = Password(s.attributes.name, value, s.attributes.password, s.attributes.domain)
                 if field == 'Mot de passe':
-                    print('bb')
                     new_pass = Password(s.attributes.name, s.attributes.login, value, s.attributes.domain)
                 if field == 'Domaine':
-                    print('aa')
                     new_pass = Password(s.attributes.name, s.attributes.login, s.attributes.password, value)
-                print(json.dumps(new_pass))
+                #print(json.dumps(new_pass))
                 harpokrat_api.password_service.update(s.id, new_pass)
                 print("Mot de passe modifié")
