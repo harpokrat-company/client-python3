@@ -3,13 +3,15 @@
 import argparse
 import sys
 
+from dataclasses import dataclass
+
 import pyfiglet
 
 from HarpokratClientLibrary.HarpokratAPI import HarpokratAPI
 
 from utils.ask_password import ask_password
-from utils.exit_error import exit_error
 
+from commands.command import Command
 from commands.list import List
 from commands.add import Add
 from commands.delete import Delete
@@ -19,6 +21,19 @@ from commands.modify import Modify
 from shell import shell_mode
 
 harpokrat_api = HarpokratAPI('https://api.harpokrat.com/v1')
+
+@dataclass
+class ArgCommand:
+    name: str
+    action: type(Command)
+
+argcommands = [
+    ArgCommand('list', List),
+    ArgCommand('add', Add),
+    ArgCommand('delete', Delete),
+    ArgCommand('info', Info),
+    ArgCommand('modify', Modify),
+]
 
 
 def retrieve_args():
@@ -41,9 +56,9 @@ def retrieve_args():
 
 
 def if_arg(args):
-    # Will be modified with the array of commands
-    if args.list or args.add or args.delete or args.modify or args.info:
-        return True
+    for argcommand in argcommands:
+        if vars(args)[argcommand.name]:
+            return True
     return False
 
 
@@ -54,22 +69,13 @@ def main():
         parser.print_help()
         return
     password = ask_password()
-    ### TODO Améliorer cette partie (important parce que c'est moche)
     if args.shell:
         return shell_mode(harpokrat_api, args.username, password)
     elif if_arg(args):
         connexion_result = harpokrat_api.token_service.login(args.username, password)
-        if args.list:
-            List().run(harpokrat_api, None)
-        if args.add:
-            Add().run(harpokrat_api, None)
-        if args.delete:
-            Delete().run(harpokrat_api, None)
-        if args.modify:
-            Modify().run(harpokrat_api, None)
-        if args.info:
-            Info().run(harpokrat_api, None)
-
+        for argcommand in argcommands:
+            if vars(args)[argcommand.name]:
+                argcommand.action().run(harpokrat_api, None)
 
 
 if __name__ == '__main__':
