@@ -14,6 +14,7 @@ from commands.list import List
 from commands.add import Add
 from commands.delete import Delete
 from commands.info import Info
+from commands.modify import Modify
 
 from shell import shell_mode
 
@@ -29,6 +30,8 @@ def retrieve_args():
                         action="store_true")
     parser.add_argument("-d", "--delete", help="delete a password",
                         action="store_true")
+    parser.add_argument("-m", "--modify", help="modify a password",
+                        action="store_true")
     parser.add_argument("-i", "--info", help="give information about user",
                         action="store_true")
     parser.add_argument("--shell", help="activate shell mode",
@@ -38,7 +41,8 @@ def retrieve_args():
 
 
 def if_arg(args):
-    if args.list or args.add or args.delete or args.info:
+    # Will be modified with the array of commands
+    if args.list or args.add or args.delete or args.modify or args.info:
         return True
     return False
 
@@ -61,6 +65,8 @@ def main():
             Add().run(harpokrat_api, None)
         if args.delete:
             Delete().run(harpokrat_api, None)
+        if args.modify:
+            Modify().run(harpokrat_api, None)
         if args.info:
             Info().run(harpokrat_api, None)
 
