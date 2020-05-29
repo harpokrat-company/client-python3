@@ -2,6 +2,9 @@
 
 The command line interface of Harpokrat allows you to manage your HPK passwords directly in your terminal.
 
+## Prerequisites
+You will need to have the HCL library installed on your computer. If not, you can find a link to it at #TODO Add link#
+
 ## Installation
 The `requirements.txt` contains all the necessary packages to the proper functioning of cli.
     
