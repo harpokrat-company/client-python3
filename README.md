@@ -2,11 +2,11 @@
 
 The command line interface of Harpokrat allows you to manage your HPK passwords directly in your terminal.
 
-##Installation
+## Installation
 The `requirements.txt` contains all the necessary packages to the proper functioning of cli.
     
     # pip3 install -r requirements.txt
-##Usage
+## Usage
     # ./cli.py [args] username
 The cli provides a `--help` argument in order to explore every usage.
 However, you will find below useful argument in order to use the CLI.
@@ -18,18 +18,18 @@ However, you will find below useful argument in order to use the CLI.
 - `--info` or `-i` give information about your account 
 
 
-##Way of improvement :steam_locomotive:
+## Way of improvement :steam_locomotive:
 - Add a way to pipe the password (eg. `./cli.py --pipe username | ./any_kind_of_services`)
 
-##FAQ
+## FAQ
 
-####Is it possible to create on HPK account using the CLI ?
+#### Is it possible to create on HPK account using the CLI ?
 No, it is not. However you can create an account using our web platform that is available at https://www.harpokrat.com/
 
 ---
-####Is it possible to contribute or to propose ideas to improve the project ?
+#### Is it possible to contribute or to propose ideas to improve the project ?
 Yes sure ! You can freely contribute to the project and if you any idea you want to share with us, do not hesitate to contact us :rocket:.
 
 ---
-####Other problems
+#### Other problems
 Please feel free to contact@haprokrat.com or to write an issue :smiley:.
