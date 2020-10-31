@@ -1,5 +1,6 @@
 
 from actions.action import Action
+from utils import password_selector
 
 
 class Delete(Action):
@@ -8,6 +9,7 @@ class Delete(Action):
         super().__init__('delete')
 
     def execute(self, hpk_api, args):
-        print("Executing {} action".format(self.label))
-        print("TODO")
+        password = password_selector(hpk_api)
+        hpk_api.password_service.delete(password['id'])
+        print("Success!")
         return
