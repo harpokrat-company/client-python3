@@ -5,7 +5,6 @@ from actions import Add, Delete, Info, List, Modify
 class ActionDispatcher:
 
     def __init__(self):
-        print('Action Dispatcher Initialisation')
         self._actions = dict()
         # Register all actions
         self.__register_all()
