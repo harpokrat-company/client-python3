@@ -3,6 +3,10 @@ from actions.action import Action
 
 
 class Info(Action):
+    '''Info Class
+
+    This class represents the action of getting all the available informations of your harpokrat account.
+    '''
 
     def __init__(self):
         super().__init__('info')

@@ -3,6 +3,10 @@ from actions.action import Action
 
 
 class List(Action):
+    '''List Class
+
+    This class represents the action of listing all the passwords of your harpokrat account.
+    '''
 
     def __init__(self):
         super().__init__('list')

@@ -9,6 +9,11 @@ hpk_api_url = 'https://api.dev.harpokrat.com:443/v1'
 
 
 class CLI:
+    '''CLI Class is the main class of the cli
+
+    This class allows to link all the elements of the program including
+    the argument parser and all the possible actions proposed by the dispatcher.
+    '''
 
     def __init__(self):
         self._parser = Parser()

@@ -6,6 +6,10 @@ from harpokrat_client_library.models.domain.password import Password
 
 
 class Add(Action):
+    '''Add Class
+
+    This class represents the action of adding a new password to your harpokrat account.
+    '''
 
     def __init__(self):
         super().__init__('add')
