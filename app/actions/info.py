@@ -8,7 +8,7 @@ class Info(Action):
         super().__init__('info')
 
     def execute(self, hpk_api, args):
-        me = hpk_api.me_service.me()
+        me = hpk_api.me_service.read()
         attributes = me['data']['attributes']
         print("Email: {}".format(attributes['email']))
         print("Prénom: {}".format(attributes['firstName']))

@@ -38,7 +38,7 @@ class CLI:
             self.print_usage()
             return
         # TODO ADD EXCEPTION SYSTEM ABOVE THE HPK_API (MAYBE IMPLEMENT DECORATOR ?)
-        self.hpk_api.token_service.login(
+        self.hpk_api.token_endpoint.login(
             self.arguments.username, self.retrieve_password())
         for action in self.arguments.actions:
             self.action_dispatcher.call_action(self.hpk_api, action, None)
