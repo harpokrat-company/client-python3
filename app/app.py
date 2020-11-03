@@ -1,7 +1,16 @@
 
 import sys
+import signal
 
 from cli import CLI
+
+
+def signal_handler(sig, frame):
+    print('Exit.')
+    sys.exit(0)
+
+
+signal.signal(signal.SIGINT, signal_handler)
 
 
 def main():
