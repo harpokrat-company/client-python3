@@ -15,8 +15,8 @@ class Info(Action):
         me = hpk_api.me_service.read()
         attributes = me['data']['attributes']
         print("Email: {}".format(attributes['email']))
-        print("Prénom: {}".format(attributes['firstName']))
-        print("Nom: {}".format(attributes['lastName']))
-        print("Adresse email validée: {}".format(
-              ("oui" if attributes['emailAddressValidated'] else "non")))
+        print("Surname: {}".format(attributes['firstName']))
+        print("Name: {}".format(attributes['lastName']))
+        print("Validated email address: {}".format(
+              ("yes" if attributes['emailAddressValidated'] else "no")))
         return
